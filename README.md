@@ -7,23 +7,12 @@ This is a shell script that stores any file as PNG image. It's based on `convert
 
 Store `input_file` as `output_file.png`:
 
-    file2png -store input_file output_file.png
-
-Print stored file info (size in bytes, original file name and sha256):
-
-    file2png -info container.png
+    file2png -c store -i input_file -o output_file.png
 
 Restore file:
     
-    file2png -restore input_file.png output_file
-
-This restores file from `input_file.png` to `output_file`.
-
-    file2png -restore input_file.png
-
-Ommiting output file name will restore to original file name.
-
-Using `-` as filename will use stdin/stdout (not supported when using `-store`).
+    file2png -c restore -i input_file.png -o output_file
+    
 
 Example container-image:
 
