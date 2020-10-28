@@ -27,8 +27,6 @@ Copy `file2png` script to any place where you will run it from (`/usr/local/bin`
 Requirements:
 
 * `convert` util from Imagemagick
-* `grep`
-* `sed`
 * `bc`
 * `awk`
 * `sha256sum`
