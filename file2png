@@ -30,7 +30,7 @@ restorefile () {
 ## $2 output file
 storefile () {
 
-    _arg_bitdepth=16
+    _arg_bitdepth=8
     IN="$1"
     #OUT="$(fn_check_file "$2" out)"
     OUT="$2"
@@ -70,7 +70,7 @@ storefile () {
             echo "###COMMENT: $L :TNEMMOC###" >> "$TMP"
         done
     fi
-    echo "###UTIL:  Decode: https://github.com/rekcuFniarB/file2png#readme  :LITU###" >> "$TMP"
+    echo "###UTIL:  Decode: https://github.com/nishad10/file2png#readme  :LITU###" >> "$TMP"
 
     SIZE="$(stat -c '%s' "$TMP")"
     
@@ -99,10 +99,8 @@ storefile () {
         errlog "Error: unexpected container size."
         exit 1
     fi
-    
-    convert -size ${RESOL}x${RESOL} -depth $_arg_bitdepth RGB:"$TMP" PNG00:"$OUTPUT"
 
-    echo "$OUTPUT"
+    cat ${TMP} | convert -size ${RESOL}x${RESOL} -depth $_arg_bitdepth RGB:- "$OUTPUT"
     
     rm "$TMP"
 } # storefile()
